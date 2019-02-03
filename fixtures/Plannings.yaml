@@ -1,0 +1,5 @@
+App\Entity\Plannings:
+  plannings{0..9}:
+       code_formation:
+       code_formateur:
+       administrators:

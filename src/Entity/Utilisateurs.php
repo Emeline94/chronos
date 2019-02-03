@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,22 @@ class Utilisateurs
      * @ORM\Column(type="decimal", precision=10, scale=0)
      */
     private $code_acces;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Plannings", mappedBy="users")
+     */
+    private $plannings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="utilisateurs")
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->plannings = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -153,6 +171,68 @@ class Utilisateurs
     public function setCodeAcces($code_acces): self
     {
         $this->code_acces = $code_acces;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Plannings[]
+     */
+    public function getPlannings(): Collection
+    {
+        return $this->plannings;
+    }
+
+    public function addPlanning(Plannings $planning): self
+    {
+        if (!$this->plannings->contains($planning)) {
+            $this->plannings[] = $planning;
+            $planning->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlanning(Plannings $planning): self
+    {
+        if ($this->plannings->contains($planning)) {
+            $this->plannings->removeElement($planning);
+            // set the owning side to null (unless already changed)
+            if ($planning->getUsers() === $this) {
+                $planning->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservations[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservations $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUtilisateurs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservations $reservation): self
+    {
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUtilisateurs() === $this) {
+                $reservation->setUtilisateurs(null);
+            }
+        }
 
         return $this;
     }

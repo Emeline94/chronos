@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,22 @@ class Plannings
      * @ORM\Column(type="string", length=255)
      */
     private $Administrateur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateurs", inversedBy="plannings")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="plannings")
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +86,49 @@ class Plannings
     public function setAdministrateur(string $Administrateur): self
     {
         $this->Administrateur = $Administrateur;
+
+        return $this;
+    }
+
+    public function getUsers(): ?Utilisateurs
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Utilisateurs $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservations[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservations $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setPlannings($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservations $reservation): self
+    {
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            // set the owning side to null (unless already changed)
+            if ($reservation->getPlannings() === $this) {
+                $reservation->setPlannings(null);
+            }
+        }
 
         return $this;
     }

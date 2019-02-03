@@ -1,0 +1,5 @@
+App\Entity\Salles:
+    salles{0..4}:
+       numeros:
+       capacite_max:
+       disponibilite:

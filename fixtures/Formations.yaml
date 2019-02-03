@@ -1,0 +1,8 @@
+App\Entity\Formations:
+  formations{0..9}:
+       intitule:
+       location:
+       users:
+       duree:
+       date_debut:
+       date_fin:

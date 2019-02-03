@@ -1,0 +1,6 @@
+App\Entity\Reservations:
+  reservations{0..9}:
+       date_pret:
+       date_retour:
+       heure_debut:
+       heure_fin:

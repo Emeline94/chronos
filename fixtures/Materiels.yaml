@@ -1,0 +1,5 @@
+App\Entity\Materiels:
+  materiels{0..9}:
+       type:
+       quantity:
+       stock_disponible:
