@@ -1,10 +1,10 @@
 App\Entity\Utilisateurs:
     utilisateurs{0..9}:
-       lastname:
-       firstname: '<userName()>'
-       email: '<email()>'
-       location:
-       trainers:
-       trainees:
-       administrative:
-       access_code:
+       Nom: '<lastName()>'
+       Prenoms: '<firstName()>'
+       emails: '<email()>'
+       lieux: '<city()>'
+       stagiaires: '<trainers()>'
+       Formateurs: '<trainees()>'
+       Administrateurs: '<admin()>'
+       code_acces: '<code()>'

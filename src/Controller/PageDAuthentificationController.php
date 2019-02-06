@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageDAuthentificationController extends AbstractController
 {
     /**
-     * @Route("/page/d/authentification", name="page_d_authentification")
+     * @Route("/page/authentification", name="page_d_authentification")
      */
     public function index()
     {

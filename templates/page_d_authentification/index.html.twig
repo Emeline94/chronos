@@ -10,11 +10,88 @@
 
 <div class="example-wrapper">
     <h1>Page d'authentification</h1>
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Page d'authentification</title>
+		<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+		<style type="text/css">
+		div {
+				/*background-color : blue;*/
+		} 
+		</style>
+	</head>
+	<body>
+		<header>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/src/Controller/PageDAuthentificationController.php'|file_link(0) }}">src/Controller/PageDAuthentificationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/templates/page_d_authentification/index.html.twig'|file_link(0) }}">templates/page_d_authentification/index.html.twig</a></code></li>
-    </ul>
+				
+			<div class="img">
+				<img src="{{ asset('build/images/logo.png') }}" class="img" alt="">
+
+
+			</div>
+			<br>
+			<div class="gallery">
+				<img src="{{ asset('build/images/banniere.png') }}" class="gallery" alt="">
+
+			<br>
+			<div class="img">
+				<img class="img" src="images/cle.png">
+			</div>
+		
+			<form action="verification.php" method="POST">
+                <h1>Authentification</h1>
+                <br>
+
+			<div id="container">
+            <!-- zone de connexion -->
+
+                <label><b><h2>Nom d'utilisateur : </h2></b></label>
+                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+                <br/><br/>
+
+                <label><b><h2>Mot de passe :</h2></b></label>
+                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+               <br><br>
+
+                <input type="submit" id='submit' value='Connexion' >
+
+
+                <!-- <?php -->
+                <!-- if(isset($_GET['erreur'])){ -->
+                    <!-- $err = $_GET['erreur']; -->
+                    <!-- if($err==1 || $err==2) -->
+                        <!-- echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p> -->
+            </form>
+        </div>
+
+        <br/><br/>
+
+<!-- <div class="fin"> -->
+				<!-- <img class="fin" src="images/banniere.png" style="width: 150px";> -->
+				
+			</div>
+
+<section>
+
+</section>
+
+<footer>
+
+<p>Contacts | En savoir plus</p>
+
+</footer>
+
 </div>
+
+</body>
+
+
+		</header>
+
+
+	</html>
 {% endblock %}
