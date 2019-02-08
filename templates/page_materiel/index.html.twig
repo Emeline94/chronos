@@ -8,14 +8,14 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Matériels</h1>
+
 <!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title>Page de matériel</title>
-		<link rel="stylesheet" type"text/css" href="style_materiel.css">
+		<link rel="stylesheet" href="{{ asset('build/app.css') }}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<style type="text/css">
 		div {
 				/*background-color : blue;*/
@@ -25,7 +25,7 @@
 	<body>
 		<header>
 			<div class="img">
-				<img src="{{ asset('images/logo.png') }}" width="110" height="110" class="d-inline-block align-top" alt="">
+				<img src="{{ asset('build/images/logo.png') }}" height="90px"class="img" alt="">
 
 			</div>
 
@@ -36,10 +36,10 @@
 				<a href="file:///C:/Users/Christelle/Desktop/ADREC/Administratif/Projet%20tutor%C3%A9/HTML%20CSS/page_materiel.html">Matériels</a>
 			</div>
 
-			<p class="flotte">
-	 			 <img src="images/ordi_p.png" alt="image" />
 
-			</p>
+			<div class="rounded float-right">
+	 			 <img src="{{ asset('build/images/ordi_p.png') }}" class="rounded float-right" alt="" />
+	 		</div>
 
 		<div class="text1">
 
@@ -47,12 +47,15 @@
 
 		</div>
 
-		<div class="gallery">
-				<img class="gallery" src="images/video_projecteur.jpg">
-				<p><br><br><p>
-				<img class="gallery" src="images/visio.jpg">
+			<div class="rounded float-left">
+	 			 <img src="{{ asset('build/images/video_projecteur.jpg') }}" class="rounded float-left" alt="" />
+	 		</div>
+
+
+			<div class="rounded float-left">
+	 			 <img src="{{ asset('build/images/visio.jpg') }}" class="rounded float-left" alt="" />
+	 		</div>
 		
-		</div>
 
 		<div class="text2">
 
@@ -93,10 +96,6 @@
 
 
 	</html>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/src/Controller/PageMaterielController.php'|file_link(0) }}">src/Controller/PageMaterielController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/templates/page_materiel/index.html.twig'|file_link(0) }}">templates/page_materiel/index.html.twig</a></code></li>
-    </ul>
+    
 </div>
 {% endblock %}

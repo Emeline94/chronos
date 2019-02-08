@@ -8,14 +8,14 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Contacts</h1>
-<!doctype html>
+
+<!doctype html> 
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title>Page Contact</title>
-		<link rel="stylesheet" type"text/css" href="style_contact.css">
+		<link rel="stylesheet" href="{{ asset('build/app.css') }}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<style type="text/css">
 		div {
 				/*background-color : blue;*/
@@ -26,69 +26,78 @@
 		<header>
 
 			<div class="img">
-				<img class="img" src="images/logo.png" style="width: 350px";>
+				<img src="{{ asset('build/images/logo.png') }}" height="90px"class="img" alt="">
+
 			</div>
 
 			<div class="menu">
 				<!-- <a href="#">Pla | </a> -->
-				<a href="https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade">Planning |</a>
+				<a href="{{ path('') }}">Planning |</a>
 				<a href="https://fr.wikipedia.org/wiki/Hypertext_Markup_Language">Reservations |</a>
 				<a href="file:///C:/Users/Lenovo/Documents/Adrec/Projet_Tutor%C3%A9/HTML_CSS/page_materiel.html">Matériels</a>
 			</div>
 
 
-			<p class="flotte">
-	 			 <img src="images/tel.png" alt="image" />
+			
+			<div class="rounded float-left">
+				<img src="{{ asset('build/images/tel.png') }}" class="rounded float-left" alt="">
+			</div>
 
-			</p>
+<!-- <img src="..." class="rounded float-right" alt="..."> -->
 
-			<div class="text1">
+			<p class="text-left">
 
 				04 44 05 21 85
 
-			</div>
-
-
-			<p class="flotte1">
-	 			 <img src="images/agencee.png" alt="image" />
-
 			</p>
 
-			<div class="text2">
+
+			<div class="rounded float-right">
+	 			 <img src="{{ asset('build/images/agencee.png') }}" class="rounded float-right" alt="" />
+
+			</div>
+
+		<p class="text-right">
 
 			ADREC
 			15 Boulevard Ambroise Brugière
-			63100 - Clermont -Ferrand
+			63100 - Clermont -Ferrand.
+		</p>
+
+
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br>
+		
+			<div class="rounded float-left">
+	 			 <img src="{{ asset('build/images/email.png') }}" class="rounded float-left" alt="" />
 
 			</div>
 
-
-			<p class="flotte2">
-	 			 <img src="images/email.png" alt="image" />
-
-			</p>
-
-			<div class="text3">
+			<p class="text-left">
 
 			contact@adrec-formation.fr
 
-			</div>
-
-
-			<p class="flotte3">
-	 			 <img src="images/lien_fb.png" alt="image" />
-
-	 			 <div class="text4">
-
-			contact@adrec-formation.fr
-
-			</div>
-
-
-				<div class="maps">
-				<img class="maps" src="images/maps.png">
-			</div>
 			</p>
+
+
+			<div class="rounded float-right">
+	 			 <img src="{{ asset('build/images/lien_fb.png') }}" class="rounded float-right" alt="" />
+	 		</div>
+
+	 			 <div class="text-right">
+
+			Suivez nous sur notre page ! 
+
+			</div>
+
+
+			<div class="maps">
+	 			 <img src="{{ asset('build/images/maps.png') }}" class="maps" alt="" />
+	 		</div>
+			
 
 			<section>
 
@@ -112,10 +121,5 @@
 
 
 	</html>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/src/Controller/ContactsController.php'|file_link(0) }}">src/Controller/ContactsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Christelle/Desktop/ADREC/Administratif/Projet tutoré/symfony/chronos/chronos/templates/contacts/index.html.twig'|file_link(0) }}">templates/contacts/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}

@@ -1,8 +1,8 @@
 App\Entity\Formations:
   formations{0..9}:
        intitule: '<text()>'
-       location: '<city()>'
-       users: '<userName()>'
-       duree: '<time()>'
+       lieux: '<city()>'
+       utilisateurs: '<userName()>'
+       duree: '<dateTime()>'
        date_debut: '<dateTime()>'
        date_fin: '<dateTime()>'

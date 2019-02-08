@@ -1,5 +1,5 @@
 App\Entity\Materiels:
   materiels{0..9}:
        type: '<text()>'
-       quantity: '<unixTime()>'
+       quantite: '<unixTime()>'
        stock_disponible: '<unixTime()>'

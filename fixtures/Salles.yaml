@@ -1,5 +1,5 @@
 App\Entity\Salles:
     salles{0..4}:
-       numeros: '<unixTime()>'
-       capacite_max: '<unixTime()>'
-       disponibilite: '<text()>'
+       numeros: '<unixTime(3)>'
+       capacite_max: '<unixTime(3)>'
+       disponibilite: '<text(50)>'
