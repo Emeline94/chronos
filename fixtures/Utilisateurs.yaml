@@ -8,5 +8,5 @@ App\Entity\Utilisateurs:
             Formateurs: '<userName()>'
             Administrateurs: '<userName()>'
             code_acces: '<unixTime()>'
-            plannings: '4x @plannings*'
+            plannings: '@plannings*'
             reservations: '5x @reservations*'

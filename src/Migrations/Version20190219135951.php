@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190131095114 extends AbstractMigration
+final class Version20190219135951 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20190131095114 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE formations (id INT AUTO_INCREMENT NOT NULL, intitule VARCHAR(255) NOT NULL, lieux VARCHAR(255) NOT NULL, utilisateurs VARCHAR(255) NOT NULL, duree TIME NOT NULL, date_debut DATE NOT NULL, date_fin DATE NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE reservations CHANGE utilisateurs_id utilisateurs_id INT DEFAULT NULL, CHANGE plannings_id plannings_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE salles CHANGE disponibilite disponibilite NUMERIC(10, 0) NOT NULL');
+        $this->addSql('ALTER TABLE utilisateurs CHANGE plannings_id plannings_id INT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,8 @@ final class Version20190131095114 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE formations');
+        $this->addSql('ALTER TABLE reservations CHANGE utilisateurs_id utilisateurs_id INT DEFAULT NULL, CHANGE plannings_id plannings_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE salles CHANGE disponibilite disponibilite TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE utilisateurs CHANGE plannings_id plannings_id INT DEFAULT NULL');
     }
 }

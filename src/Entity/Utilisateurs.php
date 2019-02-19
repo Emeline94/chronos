@@ -71,7 +71,6 @@ class Utilisateurs
 
     public function __construct()
     {
-        $this->plannings = new ArrayCollection();
         $this->reservations = new ArrayCollection();
     }
 

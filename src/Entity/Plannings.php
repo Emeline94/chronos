@@ -40,7 +40,7 @@ class Plannings
     private $reservations;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\utilisateurs", mappedBy="plannings")
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateurs", mappedBy="plannings")
      */
     private $utilisateurs;
 
