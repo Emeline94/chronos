@@ -58,15 +58,16 @@ class Utilisateurs
      */
     private $code_acces;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Plannings", mappedBy="users")
-     */
-    private $plannings;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="utilisateurs")
      */
     private $reservations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Plannings", inversedBy="utilisateurs")
+     */
+    private $plannings;
 
     public function __construct()
     {
@@ -175,36 +176,7 @@ class Utilisateurs
         return $this;
     }
 
-    /**
-     * @return Collection|Plannings[]
-     */
-    public function getPlannings(): Collection
-    {
-        return $this->plannings;
-    }
-
-    public function addPlanning(Plannings $planning): self
-    {
-        if (!$this->plannings->contains($planning)) {
-            $this->plannings[] = $planning;
-            $planning->setUsers($this);
-        }
-
-        return $this;
-    }
-
-    public function removePlanning(Plannings $planning): self
-    {
-        if ($this->plannings->contains($planning)) {
-            $this->plannings->removeElement($planning);
-            // set the owning side to null (unless already changed)
-            if ($planning->getUsers() === $this) {
-                $planning->setUsers(null);
-            }
-        }
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection|Reservations[]
@@ -233,6 +205,18 @@ class Utilisateurs
                 $reservation->setUtilisateurs(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlannings(): ?Plannings
+    {
+        return $this->plannings;
+    }
+
+    public function setPlannings(?Plannings $plannings): self
+    {
+        $this->plannings = $plannings;
 
         return $this;
     }

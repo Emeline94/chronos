@@ -15,6 +15,7 @@
 		<meta charset="utf-8">
 		<title>Page Contact</title>
 		<link rel="stylesheet" href="{{ asset('build/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('style/style_contact.css') }}">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<style type="text/css">
 		div {
@@ -32,15 +33,15 @@
 
 			<div class="menu">
 				<!-- <a href="#">Pla | </a> -->
-				<a href="{{ path('') }}">Planning |</a>
-				<a href="https://fr.wikipedia.org/wiki/Hypertext_Markup_Language">Reservations |</a>
-				<a href="file:///C:/Users/Lenovo/Documents/Adrec/Projet_Tutor%C3%A9/HTML_CSS/page_materiel.html">Matériels</a>
+				<a href="{{ path('planning') }}">Planning |</a>
+				<a href="{{ path('reservations') }}">Réservations |</a>
+				<a href="{{ path('page_materiel') }}">Matériels</a>
 			</div>
 
 
 			
 			<div class="rounded float-left">
-				<img src="{{ asset('build/images/tel.png') }}" class="rounded float-left" alt="">
+				<img src="{{ asset('build/images/tel.png') }}" class="flotte1" alt="">
 			</div>
 
 <!-- <img src="..." class="rounded float-right" alt="..."> -->
@@ -61,33 +62,26 @@
 
 			ADREC
 			15 Boulevard Ambroise Brugière
-			63100 - Clermont -Ferrand.
+			63100 - Clermont -Ferrand
 		</p>
-
-
-		<br><br>
-		<br><br>
-		<br><br>
-		<br><br>
-		<br>
 		
-			<div class="rounded float-left">
-	 			 <img src="{{ asset('build/images/email.png') }}" class="rounded float-left" alt="" />
+			<div class="rounded float-l">
+	 			 <img src="{{ asset('build/images/email.png') }}" class="rounded float-l" alt="" />
 
 			</div>
 
-			<p class="text-left">
+			<p class="text-l">
 
 			contact@adrec-formation.fr
 
 			</p>
 
 
-			<div class="rounded float-right">
-	 			 <img src="{{ asset('build/images/lien_fb.png') }}" class="rounded float-right" alt="" />
+			<div class="rounded float-r">
+	 			 <img src="{{ asset('build/images/lien_fb.png') }}" class="rounded float-r" alt="" />
 	 		</div>
 
-	 			 <div class="text-right">
+	 			 <div class="text-r">
 
 			Suivez nous sur notre page ! 
 
@@ -105,8 +99,8 @@
 
 					<div class="menu">
 
-					<a href="file:///C:/Users/Lenovo/Documents/Adrec/Projet_Tutor%C3%A9/HTML_CSS/page_contact.html">Contacts |</a>
-					<a href="https://getbootstrap.com/">En savoir plus</a>
+					<a href="{{ path('contacts') }}">Contacts |</a>
+					<a href="{{ path('en_savoir_plus') }}">En savoir plus</a>
 
 				</footer>
 

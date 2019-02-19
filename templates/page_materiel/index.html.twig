@@ -15,6 +15,7 @@
 		<meta charset="utf-8">
 		<title>Page de matériel</title>
 		<link rel="stylesheet" href="{{ asset('build/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('style/style_mat.css') }}">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<style type="text/css">
 		div {
@@ -31,9 +32,9 @@
 
 		<div class="menu">
 				<!-- <a href="#">Pla | </a> -->
-				<a href="file:///C:/Users/Christelle/Desktop/ADREC/Administratif/Projet%20tutor%C3%A9/HTML%20CSS/plannings.html">Planning |</a>
-				<a href="file:///C:/Users/Christelle/Desktop/ADREC/Administratif/Projet%20tutor%C3%A9/HTML%20CSS/reservations.html">Reservations |</a>
-				<a href="file:///C:/Users/Christelle/Desktop/ADREC/Administratif/Projet%20tutor%C3%A9/HTML%20CSS/page_materiel.html">Matériels</a>
+				<a href="{{ path('planning') }}">Planning |</a>
+				<a href="{{ path('reservations') }}">Réservations |</a>
+				<a href="{{ path('page_materiel') }}">Matériels</a>
 			</div>
 
 
@@ -47,15 +48,13 @@
 
 		</div>
 
-			<div class="rounded float-left">
-	 			 <img src="{{ asset('build/images/video_projecteur.jpg') }}" class="rounded float-left" alt="" />
+			<div class="img_left">
+	 			 <img src="{{ asset('build/images/video_projecteur.jpg') }}" class="img_left" alt="" />
 	 		</div>
 
-
-			<div class="rounded float-left">
-	 			 <img src="{{ asset('build/images/visio.jpg') }}" class="rounded float-left" alt="" />
-	 		</div>
-		
+      <div class="img_l">
+        <img src="{{ asset('build/images/visio.jpg') }}" class="img_l" alt="" />
+		</div>
 
 		<div class="text2">
 
@@ -68,6 +67,8 @@
 			Appareil de Visio Conférences
 
 		</div>
+
+
 <section>
 
 </section>
@@ -76,8 +77,8 @@
 
 			<div class="menu">
 
-			<a href="file:///C:/Users/Lenovo/Documents/Adrec/Projet_Tutor%C3%A9/HTML_CSS/page_contact.html">Contacts |</a>
-			<a href="https://getbootstrap.com/">En savoir plus</a>
+					<a href="{{ path('contacts') }}">Contacts |</a>
+					<a href="{{ path('en_savoir_plus') }}">En savoir plus</a>
 
 </footer>
 

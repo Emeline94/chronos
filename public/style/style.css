@@ -1,4 +1,4 @@
-div.gallery{
+img.gallery{
 	background:#d8ece8;
 	width:auto;
 	margin-left:auto;
@@ -9,13 +9,14 @@ div.gallery{
  }
  
  div#container{
+ 	padding: 40px;
  	background: #d8ece8;
  	text-align: center;
  	border-width:1px;
  	border-style:solid;
 	margin-left:auto;
 	margin-right:auto;
-	width:400px;
+	width:800px;
 	height: 220px;
  }
 
@@ -27,8 +28,19 @@ h1{
 	margin-right: 630px;
 }
 
- img.flotte{
+/* img.flotte{
  	margin-top: 50px;
  	float: left;
  	margin-left: 550px;
- }
+ }*/
+
+section{
+	background: #f5f5ef;
+}
+
+div.menu{
+	font-style: normal;
+    font-weight: bolder;
+    font-family: monospace;
+    font-size: larger;
+}

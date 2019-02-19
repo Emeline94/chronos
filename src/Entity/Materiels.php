@@ -33,10 +33,6 @@ class Materiels
      */
     private $stock_disponible;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Reservations", inversedBy="materiels")
-     */
-    private $reservations;
 
     public function __construct()
     {
@@ -84,30 +80,6 @@ class Materiels
         return $this;
     }
 
-    /**
-     * @return Collection|Reservations[]
-     */
-    public function getReservations(): Collection
-    {
-        return $this->reservations;
-    }
-
-    public function addReservation(Reservations $reservation): self
-    {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-        }
-
-        return $this;
-    }
-
-    public function removeReservation(Reservations $reservation): self
-    {
-        if ($this->reservations->contains($reservation)) {
-            $this->reservations->removeElement($reservation);
-        }
-
-        return $this;
-    }
+    
 
 }

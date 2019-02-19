@@ -33,20 +33,27 @@ class Plannings
      */
     private $Administrateur;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateurs", inversedBy="plannings")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $users;
-
+  
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="plannings")
      */
     private $reservations;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\utilisateurs", mappedBy="plannings")
+     */
+    private $utilisateurs;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Plannings", mappedBy="plannings")
+     */
+    private $plannings;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
+        $this->plannings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,17 +97,7 @@ class Plannings
         return $this;
     }
 
-    public function getUsers(): ?Utilisateurs
-    {
-        return $this->users;
-    }
-
-    public function setUsers(?Utilisateurs $users): self
-    {
-        $this->users = $users;
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection|Reservations[]
@@ -127,6 +124,68 @@ class Plannings
             // set the owning side to null (unless already changed)
             if ($reservation->getPlannings() === $this) {
                 $reservation->setPlannings(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|utilisateurs[]
+     */
+    public function getUtilisateurs(): Collection
+    {
+        return $this->utilisateurs;
+    }
+
+    public function addUtilisateur(utilisateurs $utilisateur): self
+    {
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->setPlannings($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(utilisateurs $utilisateur): self
+    {
+        if ($this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs->removeElement($utilisateur);
+            // set the owning side to null (unless already changed)
+            if ($utilisateur->getPlannings() === $this) {
+                $utilisateur->setPlannings(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Plannings[]
+     */
+    public function getPlannings(): Collection
+    {
+        return $this->plannings;
+    }
+
+    public function addPlanning(Plannings $planning): self
+    {
+        if (!$this->plannings->contains($planning)) {
+            $this->plannings[] = $planning;
+            $planning->setPlannings($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlanning(Plannings $planning): self
+    {
+        if ($this->plannings->contains($planning)) {
+            $this->plannings->removeElement($planning);
+            // set the owning side to null (unless already changed)
+            if ($planning->getPlannings() === $this) {
+                $planning->setPlannings(null);
             }
         }
 

@@ -4,3 +4,6 @@ App\Entity\Reservations:
        date_retour: '<dateTime()>'
        heure_debut: '<dateTime()>'
        heure_fin: '<dateTime()>'
+       # materiels: '3x materiels*'
+       utilisateurs: '@utilisateurs*'
+       plannings: '@plannings*'

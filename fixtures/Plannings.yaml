@@ -1,6 +1,7 @@
 App\Entity\Plannings:
   plannings{0..9}:
-       code_formation: '<unixTime()>'
-       code_formateur: '<unixTime()>'
-       administrateur: '<userName()>'
-       users: 
+      code_formation: '<unixTime()>'
+      code_formateur: '<unixTime()>'
+      administrateur: '<userName()>'
+      utilisateurs: '2x @utilisateurs*'
+      reservations: '2x @reservations*'
